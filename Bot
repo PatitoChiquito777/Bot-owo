@@ -9,6 +9,8 @@ intents.message_content = True
 # Crear un bot en la variable cliente y transferirle los privilegios
 bot = commands.Bot(command_prefix = '$',intents=intents)
 
+
+
 @bot.event
 async def on_ready():
     print(f'Hemos iniciado sesión como {bot.user}')
@@ -18,8 +20,21 @@ async def hello(ctx):
     await ctx.send(f'Hi!!!')
 
 @bot.command()
-async def bye(ctx):
+async def bye2(ctx):
     await ctx.send('🤑')
+
+@bot.command()
+async def bye1(ctx):
+    await ctx.send('😱')
+
+@bot.command()
+async def sos(ctx):
+    await ctx.send('$hello = Saludo')
+    await ctx.send('$bye2 = emoji')
+    await ctx.send('$bye1 = emoji')
+    await ctx.send('$sos = ayuda')
+    await ctx.send('$password = contraseña')
+    await ctx.send('$coin = moneda')
 
 @bot.command()
 async def password(ctx):
@@ -28,6 +43,7 @@ async def password(ctx):
 @bot.command()
 async def coin(ctx):
     await ctx.send(coin_gg)
+
 
 @bot.command()
 async def joined(ctx, member: discord.Member):
